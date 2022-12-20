@@ -10,4 +10,13 @@ function onPlay({ seconds }) {
   localStorage.setItem('videoplayer-current-time', seconds);
 }
 
-player.setCurrentTime(localStorage.getItem('videoplayer-current-time'));
+setCurrentTime();
+
+function setCurrentTime() {
+  const savedTime = localStorage.getItem('videoplayer-current-time');
+  if (!savedTime) {
+    return;
+  }
+
+  player.setCurrentTime(savedTime);
+}
